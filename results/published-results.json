@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "protocol": {
+    "dataset": "cais/wmdp:wmdp-bio:test",
+    "split": "seed 17; 689 construction / 172 validation / 215 report",
+    "scorer": "mean-full-answer-token-logprob-four-candidate-ce-v1",
+    "feature_interface": "candidate-centered final answer-token features",
+    "rank": 512,
+    "selection": "validation cross-entropy only"
+  },
+  "matched_results": {
+    "unfiltered": {
+      "model": "EleutherAI/deep-ignorance-unfiltered",
+      "revision": "c8df368ff247cb90b62e21e1689260701b3ff25a",
+      "report": {
+        "native": {"accuracy": 0.4744, "cross_entropy": 1.3619},
+        "ridge": {"accuracy": 0.5302, "cross_entropy": 1.1944},
+        "linearized_ce_gd": {"accuracy": 0.5302, "cross_entropy": 1.1434}
+      }
+    },
+    "strong-combined": {
+      "model": "EleutherAI/deep-ignorance-e2e-strong-filter-cb-lat",
+      "revision": "08ff131a561aa0863cedd7d956f974fc0cf38676",
+      "report": {
+        "native": {"accuracy": 0.2884, "cross_entropy": 1.6669},
+        "ridge": {"accuracy": 0.2698, "cross_entropy": 1.5127},
+        "linearized_ce_gd": {"accuracy": 0.3814, "cross_entropy": 1.4734}
+      }
+    }
+  },
+  "synthetic_di": {
+    "model": "domenicrosati/synthetic-di",
+    "matched_full_answer_protocol": "not yet run",
+    "legacy_incompatible_result": {
+      "interface": "four-letter output-head tangent; not comparable to the full-answer protocol",
+      "initial_accuracy": 0.483271375464684,
+      "final_linearized_ce_accuracy": 0.49907063197026025,
+      "accuracy_gain": 0.015799256505576204,
+      "cross_entropy_reduction": 0.00798384202417285
+    }
+  },
+  "scope": "Attack outcomes, not security certificates. Frozen features do not protect against feature learning."
+}

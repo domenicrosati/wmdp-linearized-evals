@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wmdp-linearized-evals"
+version = "0.1.0"
+description = "Auditable WMDP inference, ridge, and fixed-J CE-GD red-team harness"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+dependencies = [
+  "datasets>=2.18",
+  "numpy>=1.26",
+  "scikit-learn>=1.4",
+  "torch>=2.2",
+  "transformers>=4.45",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+wmdp-linearized = "wmdp_linearized.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
